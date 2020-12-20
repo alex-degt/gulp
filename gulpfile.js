@@ -1,21 +1,21 @@
 const { src, dest, parallel, series, watch } = require("gulp");
 const browserSync = require("browser-sync").create();
 const rename = require("gulp-rename");
-const extReplace = require("gulp-ext-replace");
+// const extReplace = require("gulp-ext-replace");
 const notify = require("gulp-notify");
 const del = require("del");
 
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify-es").default;
+// const concat = require("gulp-concat");
+// const uglify = require("gulp-uglify-es").default;
 const sass = require("gulp-sass");
 const sassGlob = require("gulp-sass-glob");
 const autoprefixer = require("gulp-autoprefixer");
 const cleancss = require("gulp-clean-css");
 const pug = require("gulp-pug");
-const htmlmin = require("gulp-htmlmin");
+// const htmlmin = require("gulp-htmlmin");
 const plumber = require("gulp-plumber");
 const imagemin = require("gulp-imagemin");
-const webp = require("imagemin-webp");
+// const webp = require("imagemin-webp");
 const newer = require("gulp-newer");
 const svgstore = require("gulp-svgstore");
 
@@ -30,6 +30,10 @@ function browsersync() {
 function scripts() {
 	return src("./src/js/**/*.js").pipe(dest("./docs/js/")).pipe(browserSync.stream());
 }
+
+// function scripts() {
+// 	return src("./src/js/**/*.js").pipe(uglify()).pipe(dest("./docs/js/")).pipe(browserSync.stream());
+// }
 
 function jade() {
 	return (
@@ -111,7 +115,7 @@ function cleandocs() {
 	return del("./docs/**/*");
 }
 function copyfonts() {
-	return src("./src/fonts/**/*.*").pipe(dest("./docs/fonts/"));
+	return src("./src/fonts/**/*").pipe(dest("./docs/fonts/"));
 }
 function copyimg() {
 	return src(["./src/img/dest/**/*", "!./src/img/dest/**/sprite.svg"]).pipe(dest("./docs/img/"));
