@@ -1,0 +1,140 @@
+// Кнопка "Скачать бесплатную схему"
+@import "./../components/button-download/button-download.sass"
+
+// Кнопка "Выбрать модель"
+@import "./../components/button-choose-model/button-choose-model.sass"
+
+.promo
+	position: relative
+	// height: calc(100vh - 30px)
+
+	height: 100%
+	padding-bottom: 110px
+
+	background-image: url("../img/bg/bg-2333.jpg")
+	background-repeat: no-repeat
+	background-position: top right
+	background-size: 101%
+	&::after
+		position: absolute
+		bottom: -5px
+		left: 0
+
+		width: 100%
+		height: 110px
+
+		content: ""
+
+		background-image: url("../img/bg/bottom-line.svg")
+		background-repeat: no-repeat
+		background-size: cover
+	@media (min-width: 320px) and (max-width: 767px)
+		height: 100%
+
+		background-image: url("../img/bg/bg-768.jpg")
+		background-position: top right
+		background-size: cover
+	// @media (min-width: 1440px)
+
+.promo__wrapper
+	display: flex
+	align-items: center
+	flex-direction: column
+
+	height: 100%
+	padding-top: 68px
+	.button-download
+		margin-bottom: 20px
+	@media (min-width: 768px)
+		align-items: start
+
+		padding-top: 97px
+		padding-bottom: 30px
+		padding-left: 3px
+		.button-download
+			margin-bottom: 40px
+	@media (min-width: 1024px)
+		padding-top: 106px
+		padding-bottom: 75px
+		padding-left: 54px
+		.button-download
+			margin-bottom: 45px
+	@media (min-width: 1280px)
+		padding-top: 148px
+		padding-bottom: 114px
+		padding-left: 65px
+		.button-download
+			margin-bottom: 56px
+	@media (min-width: 1440px)
+		padding-top: 205px
+		padding-bottom: 90px
+		padding-left: 102px
+		.button-download
+			margin-bottom: 73px
+
+.promo__title
+	margin-bottom: 10px
+
+	text-align: center
+
+	color: #666b71
+
+	font-size: 32px
+	font-weight: 600
+	line-height: 38px
+	@media (min-width: 320px) and (max-width: 767px)
+		br
+			display: none
+	@media (min-width: 768px)
+		margin-bottom: 18px
+
+		text-align: left
+	@media (min-width: 1024px)
+		margin-bottom: 25px
+
+		font-size: 40px
+		line-height: 48px
+	@media (min-width: 1280px)
+		margin-bottom: 30px
+
+		text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
+
+		font-size: 56px
+		line-height: 64px
+	@media (min-width: 1440px)
+		margin-bottom: 50px
+
+		font-size: 66px
+		line-height: 70px
+
+.promo__subtitle
+	margin-bottom: 18px
+
+	text-align: center
+
+	color: $accent-blue
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
+
+	font-size: 20px
+	font-weight: 400
+	line-height: 28px
+
+	span
+		font-weight: 700
+	@media (min-width: 768px)
+		margin-bottom: 20px
+
+		text-align: left
+	@media (min-width: 1024px)
+		font-size: 24px
+		line-height: 34px
+	@media (min-width: 1280px)
+		margin-bottom: 25px
+
+		font-size: 28px
+		line-height: 38px
+	@media (min-width: 1440px)
+		margin-bottom: 19px
+
+		font-size: 32px
+		line-height: 42px

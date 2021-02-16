@@ -1,0 +1,109 @@
+// Карточка товара
+@import "./../components/card/card.sass"
+
+// Кнопка "Добавить в корзину"
+@import "./../components/button-add-to-cart/button-add-to-cart.sass"
+
+// Кнопка "Добавить в избранное"
+@import "./../components/button-add-to-favorites/button-add-to-favorites.sass"
+
+.cards-list
+	padding-top: 100px
+
+.cards-list__title
+	display: flex
+	justify-content: center
+
+	margin-bottom: 24px
+	.section-title
+		position: relative
+		&::before,
+		&::after
+			position: absolute
+
+			content: ""
+
+			background-image: url("../img/icons/heart-decor.svg")
+			background-repeat: no-repeat
+			background-size: contain
+		&::before
+			bottom: -10px
+			left: -31px
+
+			width: 17px
+			height: 14px
+		&::after
+			top: -12px
+			right: -32px
+
+			width: 23px
+			height: 19px
+
+			transform: rotate(38deg)
+	@media (min-width: 768px)
+		margin-bottom: 19px
+		.section-title
+			&::before
+				bottom: -3px
+				left: -26px
+			&::after
+				right: -27px
+	@media (min-width: 1024px)
+		margin-bottom: 30px
+		.section-title
+			&::before
+				bottom: -8px
+				left: -32px
+
+				width: 22px
+				height: 19px
+			&::after
+				top: -14px
+				right: -33px
+
+				width: 30px
+				height: 26px
+	@media (min-width: 1280px)
+		.section-title
+			&::before
+				bottom: -6px
+				left: -31px
+			&::after
+				top: -4px
+				right: -38px
+	@media (min-width: 1440px)
+		margin-bottom: 50px
+		.section-title
+			&::before
+				bottom: 7px
+				left: -44px
+			&::after
+				top: -1px
+				right: -41px
+
+.cards-wrapper
+	display: grid
+
+	margin-bottom: 42px
+
+	grid-template-columns: 1fr
+	justify-items: center
+	grid-template-rows: 368px
+	gap: 20px 0
+	@media (min-width: 768px)
+		grid-template-columns: 1fr 1fr 1fr
+		grid-template-rows: 299px
+		gap: 30px
+	@media (min-width: 1024px)
+		margin-bottom: 53px
+
+		grid-template-rows: 371px
+	@media (min-width: 1280px)
+		margin-bottom: 48px
+
+		grid-template-rows: 448px
+	@media (min-width: 1440px)
+		margin-bottom: 58px
+
+		grid-template-rows: 519px
+		gap: 20px
