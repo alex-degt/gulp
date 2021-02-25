@@ -15,6 +15,10 @@ const plumber = require("gulp-plumber");
 const imagemin = require("gulp-imagemin");
 const newer = require("gulp-newer");
 const svgstore = require("gulp-svgstore");
+const rigger = require("gulp-rigger");
+const shortCss = require("gulp-shorthand");
+const styleLint = require("gulp-stylelint");
+const eslint = require("gulp-eslint");
 
 function browsersync() {
 	browserSync.init({
@@ -25,11 +29,7 @@ function browsersync() {
 }
 
 function scripts() {
-	return src("./src/js/index.js", "./src/components/**/*.js")
-		.pipe(uglify())
-		.pipe(concat("scripts.min.js"))
-		.pipe(dest("./docs/js/"))
-		.pipe(browserSync.stream());
+	return src("./src/js/index.js").pipe(rigger()).pipe(eslint()).pipe(eslint.format()).pipe(uglify()).pipe(concat("scripts.min.js")).pipe(dest("./docs/js/")).pipe(browserSync.stream());
 }
 
 function jade() {
@@ -63,13 +63,27 @@ function styles() {
 				}),
 			})
 		)
+		.pipe(
+			styleLint({
+				failAfterError: false,
+				reporters: [
+					{
+						formatter: "string",
+						console: true,
+					},
+				],
+			})
+		)
 		.pipe(sassGlob())
 		.pipe(sass())
+
+		.pipe(shortCss())
 		.pipe(concat("styles.min.css"))
 		.pipe(
 			autoprefixer({
 				overrideBrowserslist: ["last 2 versions"],
 				grid: true,
+				cascade: false,
 			})
 		)
 		.pipe(cleancss({ level: { 1: { specialComments: 0 } } }))
@@ -116,3 +130,6 @@ function startwatch() {
 }
 
 exports.default = series(cleandocs, imagesoptimize, sprite, copyimg, parallel(styles, jade, scripts, copylibs, copyfonts, parallel(browsersync, startwatch)));
+
+// shortCss - сокращаем CSS стили => font: 700 32px "Open Sans"
+// rigger - для подключения js файлов один в другой
