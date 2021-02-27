@@ -1,2 +1,2 @@
 "use strict";
-// = ../components/test/test.js
+//= ../components/button-navigation/button-navigation.js

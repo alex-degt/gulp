@@ -1,0 +1,77 @@
+.text-editor
+	// Заголовки
+	h1, h2, h3, h4, h5, h6
+		font-weight: 700
+		margin-bottom: 16px
+	h1
+		font-size: 72px
+		line-height: 80px
+
+	h2
+		font-size: 56px
+		line-height: 64px
+
+	h3
+		font-size: 48px
+		line-height: 56px
+
+	h4
+		font-size: 32px
+		line-height: 40px
+
+	h5
+		font-size: 24px
+		line-height: 32px
+
+	h6
+		font-size: 16px
+		line-height: 24px
+
+	// Списки
+	ul,
+	ol
+		font-size: 16px
+		font-weight: 400
+		line-height: 24px
+
+	ul,
+	ol
+		li
+			position: relative
+
+			margin-bottom: 16px
+			padding-left: 28px
+		li::marker
+			color: $brand
+
+	ol
+		padding-left: 24px
+		li
+			padding-left: 0
+
+	ul
+		li
+			&::before
+				position: absolute
+				top: 6px
+				left: 6px
+
+				width: 12px
+				height: 12px
+
+				content: ""
+
+				border-radius: 50%
+				background-color: $brand
+
+	// Текст
+	p
+		font-size: 16px
+		font-weight: 400
+		line-height: 24px
+		margin-bottom: 16px
+	em
+		background-color: $brand
+		color: #fff
+		font-style: normal
+	

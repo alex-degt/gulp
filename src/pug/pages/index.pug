@@ -3,24 +3,21 @@ extends ./../layouts/main.pug
 block variables
 	- const title = "ЗАГОЛОВОК СТРАНИЦЫ";
 
-block css
-	link(rel="stylesheet", href="css/index.css")
-
-block js
-	//- script(src="js/index.js")
-	//- script(src="js/all-pages.js")
-
 block content
 
-	//- SVG-inline sprite
+	// SVG-inline sprite
 	div(style="display: none")
 		include ../../img/dest/sprite.svg
-	
-	header
-		include ../sections/_header.pug
-	
-	//- main
-	//- 	include ../sections/_section.pug
 
-	//- footer
-	//- 	include ../sections/_footer.pug
+	include ../sections/_header.pug
+	
+	main.main#main
+
+		include ../templates/repeating-block.pug
+
+		//- include ../sections/_section.pug
+
+	include ../sections/_footer.pug
+
+	//- svg(width="X" height="X").icon-class
+	//- 	use(xlink:href="#icon-filename")
